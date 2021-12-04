@@ -27,7 +27,7 @@ def playTurns(part, count):
     seatingCopy = deepcopy(seating)
     global board
     while seatingCopy != board:
-        board, seatingCopy = seatingCopy, [row[:] for row in seatingCopy]
+        board, seatingCopy = seatingCopy, deepcopy(seatingCopy)
         for y in range(height):
             for x in range(width):
                 cnt = sum(TAKEN == check_seat(x + dx, y + dy, dx, dy, part)
